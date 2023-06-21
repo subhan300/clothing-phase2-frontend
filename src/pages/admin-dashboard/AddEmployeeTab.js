@@ -24,7 +24,7 @@ function AddEmployeeTab() {
     console.log("Form values:", values);
     const companyName = data.filter((val) => val._id === values.companyId)[0]
       .companyName;
-    values = { ...values, companyName };
+    values = { ...values, companyName};
     addNewEmployee(values)
       .unwrap()
       .then((res) => {

@@ -37,7 +37,7 @@ export const AdminCreateCompanies = createApi({
       providesTags: ["editManager","addManager"],
     }),
     addNewManager: builder.mutation({
-      query: (payload) => {
+      query: ({payload}) => {
         return {
           url: "/manager/add-manager",
           method: "POST",
@@ -61,6 +61,10 @@ export const AdminCreateCompanies = createApi({
         };
       },
       invalidatesTags: ["editEmployee","addEmployee"],
+    }),
+    getEmployeesByCompanyId: builder.query({
+      query: ({companyId}) => `/employee/get-employeebycompanyId?companyId=${companyId}`,
+      providesTags: ["editEmployee","addEmployee"],
     }),
     getAllProductsApi: builder.query({
       query: () => `/product/get-all-products`,
@@ -133,7 +137,21 @@ export const AdminCreateCompanies = createApi({
           },
         };
       },
-      invalidatesTags: ["editCompany","addCompany"],
+      invalidatesTags: ["editManager","addManager"],
+    }),
+  
+    editEmployee: builder.mutation({
+      query: ({payload,id}) => {
+        return {
+          url: `employee/edit-employee/${id}`,
+          method: "PATCH",
+          body: payload,
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        };
+      },
+      invalidatesTags: ["editEmployee","addEmployee"],
     }),
     deleteManager: builder.mutation({
       query: ({id}) => {
@@ -162,5 +180,7 @@ export const {
   useEditCompanyMutation,
   useEditManagerMutation,
   useDeleteManagerMutation,
-  useGetManagersByCompanyIdQuery
+  useGetManagersByCompanyIdQuery,
+  useGetEmployeesByCompanyIdQuery,
+  useEditEmployeeMutation
 } = AdminCreateCompanies;

@@ -1,6 +1,5 @@
 import axios from "axios";
 
-// let url = "https://clothing-company-backend-xvsz.vercel.app/api";
 //  http://localhost:3977/api
 // let url="http://localhost:3977/api" || "https://system-backend-three.vercel.app";
 let url="https://system-backend-three.vercel.app/api";

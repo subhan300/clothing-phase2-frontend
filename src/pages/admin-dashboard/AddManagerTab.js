@@ -89,7 +89,7 @@ function AddManagerTab() {
           rules={[{ required: true, message: "Please select a company" }]}
         >
           <Select>
-            {companies?.map(val=><Option value={val?._id}>{val?.companyName}</Option>)}
+            {companies?.map(val=><Option value={val?._id}>{val?.company}</Option>)}
           </Select>
         </Form.Item>
 

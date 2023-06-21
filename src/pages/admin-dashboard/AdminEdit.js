@@ -25,10 +25,8 @@ function AdminEdit() {
   const [company, setCompany] = useState();
   const [selected, setSelected] = useState({ record: {}, isSelected: false });
 
-  const dataSource = ["k"];
   const EmployeeEditComponentProps = {
-    dataSource,
-    company,
+    selected
   };
   const rowSelection = {
     onSelect: (record, selected, selectedRows) => {

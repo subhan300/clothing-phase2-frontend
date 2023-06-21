@@ -51,7 +51,7 @@ export const managerTableDataFormatConverter = (data) => {
       name: val.name,
       email: val.managerEmail,
       password: val.password,
-      company: val.result[0].companyName,
+      company: val?.result[0]?.companyName,
     }
   })
   return tableData

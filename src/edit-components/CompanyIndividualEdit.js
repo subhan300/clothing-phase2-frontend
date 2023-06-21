@@ -17,6 +17,7 @@ function CompanyIndividualEditComponent({
   company,
   setSelected,
 }) {
+ 
   const [editCompany, response] = useEditCompanyMutation();
   const dispatch = useDispatch();
   const [editingRow, setEditingRow] = useState({
@@ -82,6 +83,7 @@ function CompanyIndividualEditComponent({
 
   return (
     <div>
+       <h1 className="font-bold mt-5">Company</h1>
          <Spin spinning={response.isLoading} >
       <Table
         columns={adminEditGlobalFunctions.companyColumns(
