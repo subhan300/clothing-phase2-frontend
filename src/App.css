@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa:200,300,400,500,600,700,800,900&display=swap');
+
+* {
+  margin: 0;
+  font-family: 'Comfortaa';
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background: black;
+}
+@keyframes bounceInUp {
+  0%,60%,75%,90%,to {
+      -webkit-animation-timing-function: cubic-bezier(.215,.61,.355,1);
+      animation-timing-function: cubic-bezier(.215,.61,.355,1)
+  }
+
+  0% {
+      opacity: 0;
+      -webkit-transform: translate3d(0,3000px,0) scaleY(5);
+      transform: translate3d(0,3000px,0) scaleY(5)
+  }
+
+  60% {
+      opacity: 1;
+      -webkit-transform: translate3d(0,-20px,0) scaleY(.9);
+      transform: translate3d(0,-20px,0) scaleY(.9)
+  }
+
+  75% {
+      -webkit-transform: translate3d(0,10px,0) scaleY(.95);
+      transform: translate3d(0,10px,0) scaleY(.95)
+  }
+
+  90% {
+      -webkit-transform: translate3d(0,-5px,0) scaleY(.985);
+      transform: translate3d(0,-5px,0) scaleY(.985)    }
+
+  to {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0)
+  }
+}
+
+.animate__bounceInUp {
+  -webkit-animation-name: bounceInUp;
+  animation-name: bounceInUp;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+@keyframes bounceInRight {
+  0%,60%,75%,90%,to {
+      -webkit-animation-timing-function: cubic-bezier(.215,.61,.355,1);
+      animation-timing-function: cubic-bezier(.215,.61,.355,1)
+  }
+
+  0% {
+      opacity: 0;
+      -webkit-transform: translate3d(3000px,0,0) scaleX(3);
+      transform: translate3d(3000px,0,0) scaleX(3)
+  }
+
+  60% {
+      opacity: 1;
+      -webkit-transform: translate3d(-25px,0,0) scaleX(1);
+      transform: translate3d(-25px,0,0) scaleX(1)
+  }
+
+  75% {
+      -webkit-transform: translate3d(10px,0,0) scaleX(.98);
+      transform: translate3d(10px,0,0) scaleX(.98)
+  }
+
+  90% {
+      -webkit-transform: translate3d(-5px,0,0) scaleX(.995);
+      transform: translate3d(-5px,0,0) scaleX(.995)
+  }
+
+  to {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0)
+  }
+}
+
+.animate__bounceInRight {
+  -webkit-animation-name: bounceInRight;
+  animation-name: bounceInRight;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+.validation {
+  transform: translate(5rem, -58%);
+  color: #fd4444;
+  opacity: 0;
+  transition: all 0.35s;
+}
+.form_element input:invalid {
+  border-color: #fd4444;
+}
+.form_element input:invalid ~ .validation {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+.slick-prev:before, .slick-next:before {
+  color: #000 !important;
+}
+.ant-drawer {
+  /* z-index: 0 !important; */
+  /* bottom: 60px; */
+} 
+/* 
+.ant-modal-footer {
+  z-index: 1000 !important;
+  overflow: hidden !important;
+}
+.ant-drawer-mask {
+  display: none;
+}
+.ant-modal {
+  z-index: 1000 !important;
+  position: relative !important;
+  overflow:  hidden !important;
+}
+.ant-drawer-body {
+  overflow: hidden !important;
+} */

@@ -1,0 +1,57 @@
+.add_color{
+    /* border: 1px solid yellow; */
+    /* background-color: green; */
+  }
+  
+  .batch{
+    position: absolute;
+    background-color: green;
+    color: black;
+    left: 2rem;
+    top: 0;
+    margin-top: 3rem;
+  }
+  
+  .hide_batch{
+    display: none;
+  }
+  
+  .product_count{
+    color: blue;
+    border-radius: 50% 50%;
+    background-color: orange;
+   padding: .1rem .3rem;
+  
+  
+  }
+
+  .counter_bg_color{
+    background-color: red;
+  }
+
+  .default_counter_bg_color{
+    background-color: black;
+  }
+
+
+  .bd_green{
+    border:1px solid green
+  }
+
+  input:focus{
+    outline: none !important;
+  }
+
+
+
+
+
+.add-button:hover{
+  background-color: lightgreen !important;
+  color: black !important;
+  font-weight: bold;
+}
+
+
+
+
