@@ -71,14 +71,16 @@ function App() {
     process.env.REACT_APP_LOCAL_URL || "https://system-frontend-ten.vercel.app";
   let routeUrl = window.location.href.replace(`${url}/`, "");
   useEffect(() => {
+    debugger
+
     if (user.userLoggedIn) {
       if (user?.user?.role === "manager") {
-        navigate(`/${routeUrl}`);
+        navigate(`/${routeUrl?routeUrl:"manager"}`);
       } else if (user?.user?.role === "employee") {
-        navigate(`/${routeUrl}`);
+        navigate(`/${routeUrl?routeUrl:"employee"}`);
       } else if (user?.user?.role === "admin") {
         // navigate("/admin");
-        navigate(`/${routeUrl}`);
+        navigate(`/${routeUrl?routeUrl:"admin"}`);
       } else {
         dispatch(
           errorPopup({
@@ -193,7 +195,7 @@ function App() {
                     path="/all-products"
                     element={<AllProductsTabAdmin />}
                   ></Route>
-                  <Route path="/edit" element={<AdminEditTab />}></Route>
+                  <Route path="/all-companies" element={<AdminEditTab />}></Route>
                 </Routes>
               </AdminLayout>
             }

@@ -69,8 +69,8 @@ function AdminTab({elements}) {
         {
             id: 11,
             icon: 'production_quantity_limits',
-            label: 'Edit',
-            path: 'edit'
+            label: ' All Companies',
+            path: 'all-companies'
         },
     ];
     const [activeTab, setActiveTab] = useState(1);

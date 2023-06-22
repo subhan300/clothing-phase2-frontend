@@ -15,8 +15,23 @@ const addSerialNo = (data) => {
 const companyColumns = (handleEdit, handleSave, editingRow, setEditingRow) => {
   console.log("editing===", editingRow);
   return [
-    {title:"",dataIndex:"key"},
-    { 
+    { title: "", dataIndex: "key" },
+    {
+      title: "Logo",
+      dataIndex: "companyLogo",
+      render: (text, record) =>
+        editingRow.state && editingRow.record._id === record._id ? (
+          <Input
+            value={text}
+            onChange={(e) => {
+              handleEdit("logo", e.target.value, record);
+            }}
+          />
+        ) : (
+          <img src={record.companyLogo} alt="logo" />
+        ),
+    },
+    {
       title: "Company",
       dataIndex: "companyName",
       render: (text, record) =>
@@ -187,7 +202,7 @@ const managerColumns = (handleEdit, handleSave, editingRow, setEditingRow) => {
     {
       title: "Action",
       dataIndex: "action",
-      width:250,
+      width: 250,
       render: (text, record) =>
         editingRow.state && editingRow.record._id === record._id ? (
           <span>
@@ -202,7 +217,13 @@ const managerColumns = (handleEdit, handleSave, editingRow, setEditingRow) => {
             >
               Save
             </Typography.Link>
-            <Popconfirm title="Sure to cancel?" okText={<p style={{color:"black"}}>Yes</p>} onConfirm={()=>{setEditingRow(prev=>({...prev,state:false,}))}}>
+            <Popconfirm
+              title="Sure to cancel?"
+              okText={<p style={{ color: "black" }}>Yes</p>}
+              onConfirm={() => {
+                setEditingRow((prev) => ({ ...prev, state: false }));
+              }}
+            >
               <a>Cancel</a>
             </Popconfirm>
           </span>
@@ -220,18 +241,25 @@ const managerColumns = (handleEdit, handleSave, editingRow, setEditingRow) => {
   ];
 };
 
-export const  employeesColumn=(handleEdit, handleSave, editingRow, setEditingRow)=>{
-  console.log("editing ow===",editingRow)
+export const employeesColumn = (
+  handleEdit,
+  handleSave,
+  editingRow,
+  setEditingRow
+) => {
+  console.log("editing ow===", editingRow);
   return [
     {
       title: "Name",
       dataIndex: "employeeName",
       render: (text, record) =>
-      editingRow.state && editingRow.record._id === record._id ? (
-          <Input  value={text}
-          onChange={(e) => {
-            handleEdit("employeeName", e.target.value, record);
-          }} />
+        editingRow.state && editingRow.record._id === record._id ? (
+          <Input
+            value={text}
+            onChange={(e) => {
+              handleEdit("employeeName", e.target.value, record);
+            }}
+          />
         ) : (
           text
         ),
@@ -240,11 +268,13 @@ export const  employeesColumn=(handleEdit, handleSave, editingRow, setEditingRow
       title: "Email",
       dataIndex: "employeeEmail",
       render: (text, record) =>
-      editingRow.state && editingRow.record._id === record._id ?(
-          <Input  value={text}
-          onChange={(e) => {
-            handleEdit("employeeEmail", e.target.value, record);
-          }} />
+        editingRow.state && editingRow.record._id === record._id ? (
+          <Input
+            value={text}
+            onChange={(e) => {
+              handleEdit("employeeEmail", e.target.value, record);
+            }}
+          />
         ) : (
           text
         ),
@@ -253,16 +283,18 @@ export const  employeesColumn=(handleEdit, handleSave, editingRow, setEditingRow
       title: "Phone No",
       dataIndex: "employeePhone",
       render: (text, record) =>
-      editingRow.state && editingRow.record._id === record._id ? (
-          <Input  value={text}
-          onChange={(e) => {
-            handleEdit("employeePhone", e.target.value, record);
-          }} />
+        editingRow.state && editingRow.record._id === record._id ? (
+          <Input
+            value={text}
+            onChange={(e) => {
+              handleEdit("employeePhone", e.target.value, record);
+            }}
+          />
         ) : (
           text
         ),
     },
-    
+
     {
       title: "Add Product",
       dataIndex: "products",
@@ -273,11 +305,12 @@ export const  employeesColumn=(handleEdit, handleSave, editingRow, setEditingRow
     {
       title: "Action",
       dataIndex: "action",
-      render: (text, record) =>editingRow.state && editingRow.record._id === record._id ? (
+      render: (text, record) =>
+        editingRow.state && editingRow.record._id === record._id ? (
           <span>
             <Typography.Link
               onClick={() => {
-                debugger
+                debugger;
                 handleSave(record);
                 setEditingRow({ state: !editingRow.state, record: record });
               }}
@@ -287,7 +320,13 @@ export const  employeesColumn=(handleEdit, handleSave, editingRow, setEditingRow
             >
               Save
             </Typography.Link>
-            <Popconfirm title="Sure to cancel?" okText={<p style={{color:"black"}}>Yes</p>} onConfirm={()=>{setEditingRow(prev=>({...prev,state:false,}))}}>
+            <Popconfirm
+              title="Sure to cancel?"
+              okText={<p style={{ color: "black" }}>Yes</p>}
+              onConfirm={() => {
+                setEditingRow((prev) => ({ ...prev, state: false }));
+              }}
+            >
               <a>Cancel</a>
             </Popconfirm>
           </span>
@@ -304,11 +343,11 @@ export const  employeesColumn=(handleEdit, handleSave, editingRow, setEditingRow
         ),
     },
   ];
-}
+};
 export const adminEditGlobalFunctions = {
   companyColumns,
   sortData,
   managerColumns,
   addSerialNo,
-  employeesColumn
+  employeesColumn,
 };
